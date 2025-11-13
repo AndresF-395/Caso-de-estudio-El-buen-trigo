@@ -2,9 +2,9 @@
 
 EncargadoInventario::EncargadoInventario(){}
 
-void EncargadoInventario::registrarIngrediente(InventarioIngredientes& inv) {
+void EncargadoInventario::registrarIngrediente(Inventario& inv) {
     string nombre, unidad;
-    float cantidad, minimo;
+    float cantidad;
 
     cout << "Nombre del ingrediente: ";
     cin >> nombre;
@@ -12,14 +12,12 @@ void EncargadoInventario::registrarIngrediente(InventarioIngredientes& inv) {
     cin >> unidad;
     cout << "Cantidad disponible: ";
     cin >> cantidad;
-    cout << "Nivel mínimo de alerta: ";
-    cin >> minimo;
 
-    inv.agregarIngrediente(Ingrediente(nombre, unidad, cantidad, minimo));
+    inv.agregarIngrediente(Ingredientes(nombre, unidad, cantidad));
     cout << " Ingrediente registrado con éxito.\n";
 }
 
-void EncargadoInventario::editarIngrediente(InventarioIngredientes& inv) {
+void EncargadoInventario::editarIngrediente(Inventario& inv) {
     string nombre;
 
     auto ingredientes = inv.getIngredientes();
@@ -41,14 +39,14 @@ void EncargadoInventario::editarIngrediente(InventarioIngredientes& inv) {
             cout << " Nuevo nivel mínimo de alerta: ";
             cin >> nuevoMinimo;
 
-            i = Ingrediente(nuevaNombre, nuevaUnidad, nuevaCantidad, nuevoMinimo);
+            i = Ingredientes(nuevaNombre, nuevaUnidad, nuevaCantidad);
             cout << " Ingrediente actualizado con éxito.\n";
             return;
         }
     }
 }
 
-void EncargadoInventario::eliminarIngrediente(InventarioIngredientes& inv){
+void EncargadoInventario::eliminarIngrediente(Inventario& inv){
     string nombre;
     auto ingredientes = inv.getIngredientes();
 
@@ -63,7 +61,7 @@ void EncargadoInventario::eliminarIngrediente(InventarioIngredientes& inv){
     }
 }
 
-void EncargadoInventario::consultarInventario(const InventarioIngredientes& inv) {
+void EncargadoInventario::consultarInventario(const Inventario& inv) {
     auto ingredientes = inv.getIngredientes();
     if (ingredientes.empty()) {
         cout << " No hay ingredientes registrados.\n";
@@ -75,7 +73,7 @@ void EncargadoInventario::consultarInventario(const InventarioIngredientes& inv)
         cout << i.getNombre() << " (" << i.getStock() << " " << i.getUnidadMedida() << ")\n";
 }
 
-void EncargadoInventario::verificarNivelMinimo(const InventarioIngredientes& inv) {
+void EncargadoInventario::verificarNivelMinimo(const Inventario& inv) {
     cout << "\n--- Alertas de Reposición ---\n";
     inv.mostrarAlertas();
 }

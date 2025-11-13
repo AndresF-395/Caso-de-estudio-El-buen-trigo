@@ -2,7 +2,7 @@
 
 Administrador::Administrador() {}
 
-void Administrador::generarReporte(const InventarioIngredientes& inv) {
+void Administrador::generarReporte(const Inventario& inv) {
     cout << "\n --- Reporte de Inventario ---\n";
     for (const auto& i : inv.getIngredientes()) {
         cout << "- " << i.getNombre() << ": " << i.getCantidad() << " " << i.getUnidad();
@@ -15,7 +15,7 @@ void Administrador::generarReporte(const InventarioIngredientes& inv) {
         cout << "- " << p.getTipo() << ": " << p.getCantidad() << " unidades\n";
 }
 
-void Administrador::exportarReporteTxt(const InventarioIngredientes& inv) {
+void Administrador::exportarReporteTxt(const Inventario& inv) {
     ofstream file("reporte_inventario.txt");
     if (!file.is_open()) {
         cout << "Error al crear el archivo.\n";
