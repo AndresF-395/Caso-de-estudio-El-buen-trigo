@@ -29,6 +29,6 @@ void Panadero::producirPan(const std::string& nombreReceta) {
 // ===========================================================
 // Devuelve el stock actual de panes (sin imprimir nada)
 // ===========================================================
-std::vector<Panes> Panadero::consultarStock(const InventarioPanes& inventarioPanes) const {
+std::vector<Panes> Panadero::consultarStock(const Stock& inventarioPanes) const {
     return inventarioPanes.getVectorPanes();
 }

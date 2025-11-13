@@ -12,9 +12,9 @@ Colaboradores:
 #ifndef PANADERO_H
 #define PANADERO_H
 
-#include "../Modelo/InventarioIngredientes.h"
+#include "../Modelo/Inventario.h"
 #include "../Modelo/Recetas.h"
-#include "../Modelo/InventarioPanes.h"
+#include "../Modelo/Stock.h"
 #include <vector>
 #include <string>
 
@@ -32,7 +32,7 @@ public:
     void producirPan(const std::string& nombreReceta);
 
     // Consulta el stock de panes (devuelve el vector para que la Vista lo muestre)
-    std::vector<Panes> consultarStock(const InventarioPanes& inventarioPanes) const;
+    std::vector<Panes> consultarStock(const Stock& inventarioPanes) const;
 };
 
 #endif // PANADERO_H

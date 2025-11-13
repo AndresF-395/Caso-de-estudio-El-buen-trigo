@@ -12,7 +12,7 @@ Colaboradores:
 #ifndef ADMINISTRADOR_H
 #define ADMINISTRADOR_H
 
-#include "Modelo/InventarioIngredientes.h"
+#include "Modelo/Inventario.h"
 #include "BaseDeDatos.h"
 #include <fstream>
 #include <iostream>
@@ -22,8 +22,8 @@ class Administrador {
 public:
     Administrador();
 
-    void generarReporte(const InventarioIngredientes& inv);
-    void exportarReporteTxt(const InventarioIngredientes& inv);
+    void generarReporte(const Inventario& inv);
+    void exportarReporteTxt(const Inventario& inv);
 };
 
 #endif

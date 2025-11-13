@@ -21,7 +21,7 @@ Colaboradores:
 
 #include "Ingredientes.h"
 #include <string>
-#include <vector>
+#include <map>
 
 
 class Recetas{
@@ -29,8 +29,7 @@ class Recetas{
     private:
         std::string nombre;
         int numeroIngredientes;
-        std::vector<Ingredientes> ingredientesReceta;
-        std::vector<double> cantidadIngredientes;
+        std::map<Ingredientes, double> ingredientesReceta;
 
     public:
         Recetas();  //Constructor de la clase
@@ -38,16 +37,9 @@ class Recetas{
         //Getters de la clase
         std::string getNombre() const;
         int getNumeroIngredientes() const;
-        std::vector<Ingredientes>& getIngredientesReceta();
-        std::vector<double>& getCantidadIngredientes();
+        std::map<Ingredientes, double>& getIngredientesReceta();
 
         //Setters de la clase
         void setNombre(const std::string& nombre);
-        void setNumeroIngredientes(const int numeroIngredientes);
-        
-        //Métodos para manipular los vectores en los atributos
-        void agregarIngredienteReceta(const Ingredientes& nuevoIngrediente);
-        void agregarCantidadIngrediente(const double cantidadIngrediente);
 };
-
 #endif // RECETAS_H
